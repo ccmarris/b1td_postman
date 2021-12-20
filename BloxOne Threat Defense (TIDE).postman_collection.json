@@ -1,0 +1,1297 @@
+{
+	"info": {
+		"_postman_id": "02a74260-d3b9-4386-bf50-f4f87020e9c1",
+		"name": "BloxOne Threat Defense (TIDE)",
+		"description": "This collection provides examples of BloxOne Threat Defence calls for TIDE and DOSSIER.\n\nPlease add your API Key (from BloxOne) to the api_key variable in the tab above.\n\nAny feedback or questions please send to the Solutions API Group \n(Solutions API <solutionsapi@infoblox.onmicrosoft.com>).\n\nThanks,\n\nThe Solutions API Group",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Threat Lookup",
+			"item": [
+				{
+					"name": "Active Threats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threat/counts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threat",
+								"counts"
+							]
+						},
+						"description": "Returns the current indicator-count-digest.json file from S3 which contains counts of active threats organized by type, profile, class, and property."
+					},
+					"response": []
+				},
+				{
+					"name": "Active Threats - IID digest",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threat/counts/iid",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threat",
+								"counts",
+								"iid"
+							]
+						},
+						"description": "Returns the current iid-digest.json file from S3 which contains threat counts organized by type over time. Total counts are kept on a day by day basis so you can go back and see how many indicators of each type (url, ip, host) were active on a particular day (including today)"
+					},
+					"response": []
+				},
+				{
+					"name": "Active Threats counts current and historical",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/{{version}}/iid_atp/dossier/threat_counts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"{{version}}",
+								"iid_atp",
+								"dossier",
+								"threat_counts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RPZ Indicator lookup",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/{{version}}/iid_atp/lookup?q=adobekr.com",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"iid_atp",
+								"lookup"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "adobekr.com"
+								}
+							]
+						},
+						"description": "Acts as a RPZ indicator lookup\nq string A host or IP indicator"
+					},
+					"response": []
+				},
+				{
+					"name": "Check Domain",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/{{version}}/check_domain?domain=adobekr.com",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"check_domain"
+							],
+							"query": [
+								{
+									"key": "domain",
+									"value": "adobekr.com"
+								}
+							]
+						},
+						"description": "domain string A host or IP indicator"
+					},
+					"response": []
+				},
+				{
+					"name": "DOSSIER - Threat Counts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/{{version}}/iid_atp/dossier/threat_counts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"{{version}}",
+								"iid_atp",
+								"dossier",
+								"threat_counts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check IP",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/{{version}}/check_ip?ip=8.8.8.8",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"check_ip"
+							],
+							"query": [
+								{
+									"key": "ip",
+									"value": "8.8.8.8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check RPZ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/{{version}}/check_rpz?rpz=Public DOH",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"check_rpz"
+							],
+							"query": [
+								{
+									"key": "rpz",
+									"value": "Public DOH"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Threat Data",
+			"item": [
+				{
+					"name": "Get threat Indicator",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threats?host=facebook.com&rlimit=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threats"
+							],
+							"query": [
+								{
+									"key": "host",
+									"value": "facebook.com"
+								},
+								{
+									"key": "rlimit",
+									"value": "1"
+								}
+							]
+						},
+						"description": "NOTE: An indicator (domain, host, IP, URL, email or hash) must be specified\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get threat by Host",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threats/host?rlimit=100",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threats",
+								"host"
+							],
+							"query": [
+								{
+									"key": "rlimit",
+									"value": "100"
+								}
+							]
+						},
+						"description": "Returns threats for the specified type matching the query parameters. The data returned varies depending on the type of data being retrieved and any data governance. Typically it will contain fields like the host name, IP address, or URL, detected date, threat class, etc. "
+					},
+					"response": []
+				},
+				{
+					"name": "Get threat by IP",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threats/ip?rlimit=100",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threats",
+								"ip"
+							],
+							"query": [
+								{
+									"key": "rlimit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get threat by URL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threats/url?rlimit=100",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threats",
+								"url"
+							],
+							"query": [
+								{
+									"key": "rlimit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get threat by EMail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threats/email?rlimit=100",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threats",
+								"email"
+							],
+							"query": [
+								{
+									"key": "rlimit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get threat by Hash",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threats/host?rlimit=100",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threats",
+								"host"
+							],
+							"query": [
+								{
+									"key": "rlimit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get threat by type and age",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threats/host?rlimit=1000",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threats",
+								"host"
+							],
+							"query": [
+								{
+									"key": "rlimit",
+									"value": "1000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get threat by type and age",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threats/host/recent?rlimit=100",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threats",
+								"host",
+								"recent"
+							],
+							"query": [
+								{
+									"key": "rlimit",
+									"value": "100"
+								}
+							]
+						},
+						"description": "Path Parameters\nParameter\nData Type\nDescription\ntype\nstring\nThreat type to search for: host, ip, url, email, hash\nage\nstring\nHow long ago to search: recent, hourly, daily, weekly, monthly\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get threat archive by type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threats/archive/host?rlimit=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threats",
+								"archive",
+								"host"
+							],
+							"query": [
+								{
+									"key": "rlimit",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Data Sets",
+			"item": [
+				{
+					"name": "Get country IPs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/set/countryip",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"set",
+								"countryip"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get countries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/set/countries",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"set",
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get sanctioned countries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/set/sanctioned",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"set",
+								"sanctioned"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get bogons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/set/bogons",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"set",
+								"bogons"
+							]
+						},
+						"description": "\ntype (optional)\nstring\nbogon's type data (\"reserved\", \"full\", \"excluded\"); default is \"reserved\" type.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all excluded bogon data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/set/bogons/excluded",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"set",
+								"bogons",
+								"excluded"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get alexa data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/set/alexa",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"set",
+								"alexa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get threat classes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threat_classes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threat_classes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get threat properties",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/properties",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"properties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get threat properties Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/properties",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"properties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get default TTL for threat classes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/default/ttl",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"default",
+								"ttl"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Threat Enrichment",
+			"item": [
+				{
+					"name": "Expand MITRE Vector",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "'ACIS:1.0/FWK:MTK/PLT:['M', 'W', 'L']/C2:{CUP:['COBS', 'EMP', 'FTP']},{SALP:['EMP', 'COBS', 'PUP', 'POSH']},{SNALP:[]}/EXF:{EOC2:['PUP', 'EMP']}'"
+						},
+						"url": {
+							"raw": "{{base_url}}/tide/threat-enrichment/mitre/lookup?name=Kimsuki",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"threat-enrichment",
+								"mitre",
+								"lookup"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Kimsuki"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Threat Actor Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/tide/threat-enrichment/threat_actor/lookup?name=Kimsuki",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"threat-enrichment",
+								"threat_actor",
+								"lookup"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Kimsuki"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reporting",
+			"item": [
+				{
+					"name": "Get RPZ Hits for last 15 minutes",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require(\"moment\")",
+									"var sif1 = moment().unix(); ",
+									"var sif2 = moment().subtract(7, 'days').unix()",
+									"pm.environment.set(\"time1\", sif1);",
+									"pm.environment.set(\"time0\", sif2);",
+									"console.log(sif1)",
+									"console.log(sif2)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/dnsdata/v2/dns_event?t0={{time0}}&_format=json&t1={{time1}}&source=rpz",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"dnsdata",
+								"v2",
+								"dns_event"
+							],
+							"query": [
+								{
+									"key": "t0",
+									"value": "{{time0}}"
+								},
+								{
+									"key": "_format",
+									"value": "json"
+								},
+								{
+									"key": "t1",
+									"value": "{{time1}}"
+								},
+								{
+									"key": "source",
+									"value": "rpz"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category Hits for the Last Hour",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require(\"moment\")",
+									"var sif1 = moment().unix(); ",
+									"var sif2 = moment().subtract(1, 'hours').unix()",
+									"pm.environment.set(\"time1\", sif1);",
+									"pm.environment.set(\"time0\", sif2);",
+									"console.log(sif1)",
+									"console.log(sif2)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/dnsdata/v2/dns_event?source=category&t0={{time0}}&t1={{time1}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"dnsdata",
+								"v2",
+								"dns_event"
+							],
+							"query": [
+								{
+									"key": "source",
+									"value": "category"
+								},
+								{
+									"key": "t0",
+									"value": "{{time0}}"
+								},
+								{
+									"key": "t1",
+									"value": "{{time1}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Threat Actor Details",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require(\"moment\")",
+									"var sif1 = moment().unix(); ",
+									"var sif2 = moment().subtract(15, 'minutes').unix()",
+									"pm.environment.set(\"time1\", sif1);",
+									"pm.environment.set(\"time0\", sif2);",
+									"console.log(sif1)",
+									"console.log(sif2)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/tide/threat-enrichment/threat_actor/lookup?name=Kimsuki",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"threat-enrichment",
+								"threat_actor",
+								"lookup"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Kimsuki"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nico's Nasty Stuff via API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threats?type=host&class=apt&class=bot&class=intrusionattempt&class=malwarec2&class=malwarec2dga&class=malwaredownload&class=webappattack&threat_level=100&confidence=100&data_format=json&risk_score_rating=Critical&confidence_score_rating=High&threat_score_rating=Critical&rlimit=100",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threats"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "host"
+								},
+								{
+									"key": "class",
+									"value": "apt"
+								},
+								{
+									"key": "class",
+									"value": "bot"
+								},
+								{
+									"key": "class",
+									"value": "intrusionattempt"
+								},
+								{
+									"key": "class",
+									"value": "malwarec2"
+								},
+								{
+									"key": "class",
+									"value": "malwarec2dga"
+								},
+								{
+									"key": "class",
+									"value": "malwaredownload"
+								},
+								{
+									"key": "class",
+									"value": "webappattack"
+								},
+								{
+									"key": "threat_level",
+									"value": "100"
+								},
+								{
+									"key": "confidence",
+									"value": "100"
+								},
+								{
+									"key": "data_format",
+									"value": "json"
+								},
+								{
+									"key": "risk_score_rating",
+									"value": "Critical"
+								},
+								{
+									"key": "confidence_score_rating",
+									"value": "High"
+								},
+								{
+									"key": "threat_score_rating",
+									"value": "Critical"
+								},
+								{
+									"key": "rlimit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CM",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threats?type=host&class=apt&class=bot&class=intrusionattempt&class=malwarec2&class=malwarec2dga&class=malwaredownload&class=webappattack&threat_level=100&confidence=100&data_format=json&risk_score_rating=Critical&confidence_score_rating=High&threat_score_rating=Critical&rlimit=100",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threats"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "host"
+								},
+								{
+									"key": "class",
+									"value": "apt"
+								},
+								{
+									"key": "class",
+									"value": "bot"
+								},
+								{
+									"key": "class",
+									"value": "intrusionattempt"
+								},
+								{
+									"key": "class",
+									"value": "malwarec2"
+								},
+								{
+									"key": "class",
+									"value": "malwarec2dga"
+								},
+								{
+									"key": "class",
+									"value": "malwaredownload"
+								},
+								{
+									"key": "class",
+									"value": "webappattack"
+								},
+								{
+									"key": "threat_level",
+									"value": "100"
+								},
+								{
+									"key": "confidence",
+									"value": "100"
+								},
+								{
+									"key": "data_format",
+									"value": "json"
+								},
+								{
+									"key": "risk_score_rating",
+									"value": "Critical"
+								},
+								{
+									"key": "confidence_score_rating",
+									"value": "High"
+								},
+								{
+									"key": "threat_score_rating",
+									"value": "Critical"
+								},
+								{
+									"key": "rlimit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nico's Nasty Stuff via API Plus actor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threats?type=host&class=apt&class=bot&class=intrusionattempt&class=malwarec2&class=malwarec2dga&class=malwaredownload&class=webappattack&threat_level=100&confidence=100&data_format=json&risk_score_rating=Critical&confidence_score_rating=High&threat_score_rating=Critical&threat_actor=Kimsuki&rlimit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threats"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "host"
+								},
+								{
+									"key": "class",
+									"value": "apt"
+								},
+								{
+									"key": "class",
+									"value": "bot"
+								},
+								{
+									"key": "class",
+									"value": "intrusionattempt"
+								},
+								{
+									"key": "class",
+									"value": "malwarec2"
+								},
+								{
+									"key": "class",
+									"value": "malwarec2dga"
+								},
+								{
+									"key": "class",
+									"value": "malwaredownload"
+								},
+								{
+									"key": "class",
+									"value": "webappattack"
+								},
+								{
+									"key": "threat_level",
+									"value": "100"
+								},
+								{
+									"key": "confidence",
+									"value": "100"
+								},
+								{
+									"key": "data_format",
+									"value": "json"
+								},
+								{
+									"key": "risk_score_rating",
+									"value": "Critical"
+								},
+								{
+									"key": "confidence_score_rating",
+									"value": "High"
+								},
+								{
+									"key": "threat_score_rating",
+									"value": "Critical"
+								},
+								{
+									"key": "threat_actor",
+									"value": "Kimsuki"
+								},
+								{
+									"key": "rlimit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Log4j Examples",
+			"item": [
+				{
+					"name": "IP IOCs for log4j",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threats?profile=IID&type=ip&notes=log4j exploitation attempts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threats"
+							],
+							"query": [
+								{
+									"key": "profile",
+									"value": "IID"
+								},
+								{
+									"key": "type",
+									"value": "ip"
+								},
+								{
+									"key": "notes",
+									"value": "log4j exploitation attempts"
+								},
+								{
+									"key": "property",
+									"value": "MalwareC2_Generic",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Host IOCs for log4j",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/data/threats?profile=IID&type=host&notes=\"log4j exploit domain\"&rlimit=1000",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"data",
+								"threats"
+							],
+							"query": [
+								{
+									"key": "profile",
+									"value": "IID"
+								},
+								{
+									"key": "type",
+									"value": "host"
+								},
+								{
+									"key": "notes",
+									"value": "\"log4j exploit domain\""
+								},
+								{
+									"key": "rlimit",
+									"value": "1000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "Token {{api_key}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://csp.infoblox.com"
+		},
+		{
+			"key": "api_key",
+			"value": "YOUR API KEY"
+		},
+		{
+			"key": "version",
+			"value": "v1"
+		}
+	]
+}
