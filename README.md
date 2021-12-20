@@ -6,5 +6,5 @@ These collections provide examples of working with the BloxOne Threat Defense AP
 The collections require the two environment variables to be configured::
 
   - base_url: https://csp.infoblox.com
-  - api_key:  <your api key>
+  - api_key:  [your api key]
 
