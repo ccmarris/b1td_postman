@@ -1,0 +1,373 @@
+{
+	"info": {
+		"_postman_id": "dae89cc7-96c8-4f17-9f92-76e3da5debc4",
+		"name": "BloxOne Threat Defence (Dossier)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dossier Calls",
+			"item": [
+				{
+					"name": "Get Dossier Sources",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/services/intel/lookup/sources",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"services",
+								"intel",
+								"lookup",
+								"sources"
+							]
+						},
+						"description": "Returns a list of all Dossier sources and whether or not they are active for the caller."
+					},
+					"response": []
+				},
+				{
+					"name": "Dossier source by target (host)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}//tide/api/services/intel/lookup/sources/target/host",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"",
+								"tide",
+								"api",
+								"services",
+								"intel",
+								"lookup",
+								"sources",
+								"target",
+								"host"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dosser Lookup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"target\": {\n\t\"one\": {\n\t\t\"type\": \"host\", \n\t\t\"target\": \"adobekr.net\", \n\t\t\"sources\": [ \"atp\", \"ccb\", \"dns\", \"gcs\", \"geo\", \"gsb\", \"malware_analysis\", \"pdns\", \"ptr\", \"whois\", \"inforank\", \"malware_analysis_v3\", \"activity\", \"rpz_feeds\", \"custom_lists\", \"whitelist\", \"infoblox_web_cat\", \"zvelo\" ]\n\t\t\n\t}\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tide/api/services/intel/lookup/jobs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"services",
+								"intel",
+								"lookup",
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dossier Group Lookup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"target\": {\n\t\"group\": {\n\t\t\"type\": \"host\", \n\t\t\"targets\": [ \"adobekr.net\" ],\n\t\t\"sources\": [ \"atp\", \"whois\", \"dns\" ]\n\t\t\n\t}\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tide/api/services/intel/lookup/jobs?wait=true",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"services",
+								"intel",
+								"lookup",
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "wait",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dossier List lookup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"target\": { \n\t\"list\": [ \n        { \"type\": \"host\", \n          \"target\": \"adobekr.net\",\n\t\t  \"sources\": [ \"atp\", \"whois\" ]\n        },\n        { \"type\": \"ip\", \n          \"target\": \"205.185.115.217\",\n\t\t  \"sources\": [ \"atp\", \"whois\" ]\n        } ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tide/api/services/intel/lookup/jobs?wait=true",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"services",
+								"intel",
+								"lookup",
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "wait",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dossier IP GET Example",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"target\": {\n\t\"one\": {\n\t\t\"type\": \"host\", \n\t\t\"target\": \"adobekr.net\", \n\t\t\"sources\": [ \"alexa\", \"atp\", \"ccb\", \"dns\", \"gcs\", \"geo\", \"gsb\", \"malware_analysis\", \"pdns\", \"ptr\", \"whois\", \"inforank\", \"malware_analysis_v3\", \"activity\", \"rpz_feeds\", \"custom_lists\", \"whitelist\", \"infoblox_web_cat\", \"zvelo\" ]\n\t\t\n\t}\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tide/api/services/intel/lookup/indicator/ip?value=104.236.231.244&wait=true",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"services",
+								"intel",
+								"lookup",
+								"indicator",
+								"ip"
+							],
+							"query": [
+								{
+									"key": "value",
+									"value": "104.236.231.244"
+								},
+								{
+									"key": "wait",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by Indicator by host",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/services/intel/lookup/indicator/host?value=31337.pl&wait=true",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"services",
+								"intel",
+								"lookup",
+								"indicator",
+								"host"
+							],
+							"query": [
+								{
+									"key": "value",
+									"value": "31337.pl"
+								},
+								{
+									"key": "wait",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by Indicator by IP",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/services/intel/lookup/indicator/host?value=104.236.231.244&wait=true",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"services",
+								"intel",
+								"lookup",
+								"indicator",
+								"host"
+							],
+							"query": [
+								{
+									"key": "value",
+									"value": "104.236.231.244"
+								},
+								{
+									"key": "wait",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dossier Batch Job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"target\": {\n\t\"one\": {\n\t\t\"type\": \"host\", \n\t\t\"target\": \"adobekr.net\", \n\t\t\"sources\": [ \"alexa\", \"atp\", \"ccb\", \"dns\", \"gcs\", \"geo\", \"gsb\", \"malware_analysis\", \"pdns\", \"ptr\", \"whois\", \"inforank\", \"malware_analysis_v3\", \"activity\", \"rpz_feeds\", \"custom_lists\", \"whitelist\", \"infoblox_web_cat\", \"zvelo\" ]\n\t\t\n\t}\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tide/api/services/intel/lookup/jobs?wait=false",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"services",
+								"intel",
+								"lookup",
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "wait",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a lookup job",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tide/api/services/intel/lookup/jobs/<job_id>",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tide",
+								"api",
+								"services",
+								"intel",
+								"lookup",
+								"jobs",
+								"<job_id>"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "Token {{api_key}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
