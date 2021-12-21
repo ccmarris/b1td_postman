@@ -1171,7 +1171,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/tide/api/data/threats?profile=IID&type=ip&notes=log4j exploitation attempts",
+							"raw": "{{base_url}}/tide/api/data/threats?profile=IID&type=ip&notes=log4j exploit domain&notes=log4j exploitation attempts&notes=Scanner for Log4j vulnerability&notes=Scanner bot for finding CVE-2021-4428 vulnerability https://www.microsoft.com/security/blog/2021/12/11/guidance-for-preventing-detecting-and-hunting-for-cve-2021-44228-log4j-2-exploitation/&notes=log4j exploitation",
 							"host": [
 								"{{base_url}}"
 							],
@@ -1192,7 +1192,23 @@
 								},
 								{
 									"key": "notes",
+									"value": "log4j exploit domain"
+								},
+								{
+									"key": "notes",
 									"value": "log4j exploitation attempts"
+								},
+								{
+									"key": "notes",
+									"value": "Scanner for Log4j vulnerability"
+								},
+								{
+									"key": "notes",
+									"value": "Scanner bot for finding CVE-2021-4428 vulnerability https://www.microsoft.com/security/blog/2021/12/11/guidance-for-preventing-detecting-and-hunting-for-cve-2021-44228-log4j-2-exploitation/"
+								},
+								{
+									"key": "notes",
+									"value": "log4j exploitation"
 								},
 								{
 									"key": "property",
@@ -1210,7 +1226,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/tide/api/data/threats?profile=IID&type=host&notes=\"log4j exploit domain\"&rlimit=1000",
+							"raw": "{{base_url}}/tide/api/data/threats?profile=IID&type=host&notes=log4j exploit domain&notes=log4j exploitation attempts&notes=Scanner for Log4j vulnerability&notes=Scanner bot for finding CVE-2021-4428 vulnerability https://www.microsoft.com/security/blog/2021/12/11/guidance-for-preventing-detecting-and-hunting-for-cve-2021-44228-log4j-2-exploitation/&notes=log4j exploitation",
 							"host": [
 								"{{base_url}}"
 							],
@@ -1231,11 +1247,23 @@
 								},
 								{
 									"key": "notes",
-									"value": "\"log4j exploit domain\""
+									"value": "log4j exploit domain"
 								},
 								{
-									"key": "rlimit",
-									"value": "1000"
+									"key": "notes",
+									"value": "log4j exploitation attempts"
+								},
+								{
+									"key": "notes",
+									"value": "Scanner for Log4j vulnerability"
+								},
+								{
+									"key": "notes",
+									"value": "Scanner bot for finding CVE-2021-4428 vulnerability https://www.microsoft.com/security/blog/2021/12/11/guidance-for-preventing-detecting-and-hunting-for-cve-2021-44228-log4j-2-exploitation/"
+								},
+								{
+									"key": "notes",
+									"value": "log4j exploitation"
 								}
 							]
 						}
