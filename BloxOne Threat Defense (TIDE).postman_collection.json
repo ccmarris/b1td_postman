@@ -1171,7 +1171,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/tide/api/data/threats?profile=IID&type=ip&notes=log4j exploit domain&notes=log4j exploitation attempts&notes=Scanner for Log4j vulnerability&notes=Scanner bot for finding CVE-2021-4428 vulnerability https://www.microsoft.com/security/blog/2021/12/11/guidance-for-preventing-detecting-and-hunting-for-cve-2021-44228-log4j-2-exploitation/&notes=log4j exploitation",
+							"raw": "{{base_url}}/tide/api/data/threats?profile=IID&type=ip&notes=log4j exploit domain&notes=log4j exploitation attempts&notes=Scanner for Log4j vulnerability&notes=Scanner bot for finding CVE-2021-4428 vulnerability https://www.microsoft.com/security/blog/2021/12/11/guidance-for-preventing-detecting-and-hunting-for-cve-2021-44228-log4j-2-exploitation/&notes=log4j exploitation&notes=IOCs from Talos blog. Associated with observed exploitation activity targeting CVE-2021-44228. https://blog.talosintelligence.com/2021/12/apache-log4j-rce-vulnerability.html&notes=m8220 Botnet C2 location found in Log4j exploit string. https://s3.amazonaws.com/talos-intelligence-site/production/document_files/files/000/095/700/original/Dec1521IOCs.txt?1639683730&notes=Mushtik Botnet C2 location found in Log4j exploit string. https://s3.amazonaws.com/talos-intelligence-site/production/document_files/files/000/095/700/original/Dec1521IOCs.txt?1639683730&notes=osint scanner seen with log4shell log4j scanning&notes=Open source vulnerability scanner/network utility tool found in Log4j exploit string. https://s3.amazonaws.com/talos-intelligence-site/production/document_files/files/000/095/700/original/Dec1521IOCs.txt?1639683730",
 							"host": [
 								"{{base_url}}"
 							],
@@ -1211,6 +1211,26 @@
 									"value": "log4j exploitation"
 								},
 								{
+									"key": "notes",
+									"value": "IOCs from Talos blog. Associated with observed exploitation activity targeting CVE-2021-44228. https://blog.talosintelligence.com/2021/12/apache-log4j-rce-vulnerability.html"
+								},
+								{
+									"key": "notes",
+									"value": "m8220 Botnet C2 location found in Log4j exploit string. https://s3.amazonaws.com/talos-intelligence-site/production/document_files/files/000/095/700/original/Dec1521IOCs.txt?1639683730"
+								},
+								{
+									"key": "notes",
+									"value": "Mushtik Botnet C2 location found in Log4j exploit string. https://s3.amazonaws.com/talos-intelligence-site/production/document_files/files/000/095/700/original/Dec1521IOCs.txt?1639683730"
+								},
+								{
+									"key": "notes",
+									"value": "osint scanner seen with log4shell log4j scanning"
+								},
+								{
+									"key": "notes",
+									"value": "Open source vulnerability scanner/network utility tool found in Log4j exploit string. https://s3.amazonaws.com/talos-intelligence-site/production/document_files/files/000/095/700/original/Dec1521IOCs.txt?1639683730"
+								},
+								{
 									"key": "property",
 									"value": "MalwareC2_Generic",
 									"disabled": true
@@ -1226,7 +1246,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/tide/api/data/threats?profile=IID&type=host&notes=log4j exploit domain&notes=log4j exploitation attempts&notes=Scanner for Log4j vulnerability&notes=Scanner bot for finding CVE-2021-4428 vulnerability https://www.microsoft.com/security/blog/2021/12/11/guidance-for-preventing-detecting-and-hunting-for-cve-2021-44228-log4j-2-exploitation/&notes=log4j exploitation",
+							"raw": "{{base_url}}/tide/api/data/threats?profile=IID&type=host&notes=log4j exploit domain&notes=log4j exploitation attempts&notes=Scanner for Log4j vulnerability&notes=Scanner bot for finding CVE-2021-4428 vulnerability https://www.microsoft.com/security/blog/2021/12/11/guidance-for-preventing-detecting-and-hunting-for-cve-2021-44228-log4j-2-exploitation/&notes=log4j exploitation&notes=IOCs from Talos blog. Associated with observed exploitation activity targeting CVE-2021-44228. https://blog.talosintelligence.com/2021/12/apache-log4j-rce-vulnerability.html&notes=m8220 Botnet C2 location found in Log4j exploit string. https://s3.amazonaws.com/talos-intelligence-site/production/document_files/files/000/095/700/original/Dec1521IOCs.txt?1639683730&notes=Mushtik Botnet C2 location found in Log4j exploit string. https://s3.amazonaws.com/talos-intelligence-site/production/document_files/files/000/095/700/original/Dec1521IOCs.txt?1639683730&notes=osint scanner seen with log4shell log4j scanning&notes=Open source vulnerability scanner/network utility tool found in Log4j exploit string. https://s3.amazonaws.com/talos-intelligence-site/production/document_files/files/000/095/700/original/Dec1521IOCs.txt?1639683730&fields=host,extended,threat_level,detected",
 							"host": [
 								"{{base_url}}"
 							],
@@ -1264,6 +1284,30 @@
 								{
 									"key": "notes",
 									"value": "log4j exploitation"
+								},
+								{
+									"key": "notes",
+									"value": "IOCs from Talos blog. Associated with observed exploitation activity targeting CVE-2021-44228. https://blog.talosintelligence.com/2021/12/apache-log4j-rce-vulnerability.html"
+								},
+								{
+									"key": "notes",
+									"value": "m8220 Botnet C2 location found in Log4j exploit string. https://s3.amazonaws.com/talos-intelligence-site/production/document_files/files/000/095/700/original/Dec1521IOCs.txt?1639683730"
+								},
+								{
+									"key": "notes",
+									"value": "Mushtik Botnet C2 location found in Log4j exploit string. https://s3.amazonaws.com/talos-intelligence-site/production/document_files/files/000/095/700/original/Dec1521IOCs.txt?1639683730"
+								},
+								{
+									"key": "notes",
+									"value": "osint scanner seen with log4shell log4j scanning"
+								},
+								{
+									"key": "notes",
+									"value": "Open source vulnerability scanner/network utility tool found in Log4j exploit string. https://s3.amazonaws.com/talos-intelligence-site/production/document_files/files/000/095/700/original/Dec1521IOCs.txt?1639683730"
+								},
+								{
+									"key": "fields",
+									"value": "host,extended,threat_level,detected"
 								}
 							]
 						}
